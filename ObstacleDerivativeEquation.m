@@ -26,7 +26,7 @@ t04 = t01 * t12 * t23 * t34; % transfromation
 ee = t04(1:3, 4); % end-effector position
 
 % derivative(expect poly because to decrease equation complexity)
-cost = ee(dim+1); % - poly;
+cost = ee(dim+1) - poly;
 
 % which part do we derivative
 if side == 0

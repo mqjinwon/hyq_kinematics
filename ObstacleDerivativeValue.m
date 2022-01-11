@@ -176,10 +176,10 @@ elseif dim == 1 % y
         s7 = -2*s10*s15/abs(s14) + b2*sign(s14)*s11/abs(s14)^2 + sign(s14)*s11*s15^2/abs(s14)^2;
         s6 = b2 + s15^2;
         s5 = delJoint3 + acos(complex(1-s9-200*s12/49));
-        s4 = 7*sqrt(1-(200*s12/49+s9-1)^2);
+        s4 = 7*sqrt(complex(1-(200*s12/49+s9-1)^2));
         s3 = delJoint1 -atan2(s16 -t*x0_dot - x0 - s17 - 207/1000, -b);
         s2 = delJoint2 -pi/2 + angle(a+b2*1i/abs(s14) + s15^2*1i/abs(s14) - 747/2000 - 41/500*1i) + acos(complex(10*s8/7));
-        s1 = (a-747/2000)*s7/(s12+s13^2)-10*s7*s13/(7*s8*sqrt(1-100*s13^2/49-100*s12/49));
+        s1 = (a-747/2000)*s7/(s12+s13^2)-10*s7*s13/(7*s8*sqrt(complex(1-100*s13^2/49-100*s12/49)));
 
         output = 7*sin(s3)*sin(s2)*s1/20 - 7*sin(s3)*cos(s5)*sin(s2)*s1/20 -7*sin(s3)*cos(s2)*sin(s5)*s1/20 ...
                 -41*b*cos(s3)*s10/(500*s6) ...
@@ -294,10 +294,10 @@ elseif dim == 2 % z
         s7 = -2*s10*s15/abs(s14) + sign(s14)*s13*s10/abs(s14)^2 + sign(s14)*s10*s15^2/abs(s14)^2;
         s6 = 20 * (s13 + s15^2);
         s5 = delJoint3 + acos(complex(1 - s9 - 200*s11/49));
-        s4 = 7 * sqrt(1-(200*s11/49 + s9 - 1)^2);
+        s4 = 7 * sqrt(complex(1-(200*s11/49 + s9 - 1)^2));
         s3 = delJoint1 -atan2(-b-207/1000, s16 - t*x0_dot - x0 - s17);
         s2 = delJoint2 -pi/2 + angle(a + s15^2 * 1i/abs(s14) + s13 * 1i/abs(s14) - 747/2000 - 41/500*1i) + acos(complex(10*s8/7));
-        s1 = (a-747/2000)*s7/(s11+s12^2) - 10*s7*s12/(7*s8*sqrt(1-100*s12^2/49-100*s11/49));
+        s1 = (a-747/2000)*s7/(s11+s12^2) - 10*s7*s12/(7*s8*sqrt(complex(1-100*s12^2/49-100*s11/49)));
         output = -7*cos(s3)*sin(s2)*s1/20 + 41*sin(s3)*(b+207/1000)*s10/(500*(s13+s15^2)) ...
                 + 7*cos(s5)*cos(s3)*sin(s2)*s1/20 + 7*sin(s5)*cos(s3)*cos(s2)*s1/20 ...
                 + 7*cos(s2)*sin(s3)*(b+207/1000)*s10/s6 ...
@@ -343,7 +343,7 @@ elseif side == 1
     poly = 3*t2/T2 - 2*t3/T3;
 end
 
-output = output;
+output = real(output-poly);
 
 end
 
